@@ -11,10 +11,11 @@ extensions = [
     Extension("*",["src/Gases/*.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/src/']),
 ]
 #setup(ext_modules=cythonize(extensions))
+extensions = cythonize(extensions)
 
 setup(
     setup_requires=[
-        'cython>=0.x',
+        'cython>=0.2x',
     ],
 
     name='PyGasMix',  # Required
@@ -27,6 +28,6 @@ setup(
     package_data={  # Optional
         'src': ['/src/Gases/gases.npy','/src/*.pxd','/src/Gases/*.pxd'],
     },
-    extensions=cythonize(extensions),
+    extensions=extensions,
     cmdclass={'build_ext': Cython.Build.build_ext},
 )
