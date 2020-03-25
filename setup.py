@@ -1,5 +1,6 @@
 import os
-from distutils import setup, find_packages, Extension
+from distutils.core import setup
+from distutils.extension import Extension
 from Cython.Build import cythonize
 import Cython
 import numpy
