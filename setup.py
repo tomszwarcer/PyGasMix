@@ -43,8 +43,8 @@ setup(
     package_dir={'PyGasMix': 'PyGasMix'},
     install_requires=['numpy==1.16.1','cython'],  # Optional
     package_data={  # Optional
-        'PyGasMix': ['./PyGasMix/*.pxd'],
-        'PyGasMix/Gases':['./PyGasMix/Gases/gases.npy','./PyGasMix/Gases/*.pxd','./PyGasMix/*.pxd']
+        'PyGasMix': ['PyGasMix/*.pxd'],
+        'PyGasMix/Gases':['PyGasMix/Gases/gases.npy','PyGasMix/Gases/*.pxd','PyGasMix/*.pxd']
     },
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},
