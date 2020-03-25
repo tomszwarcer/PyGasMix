@@ -5,5 +5,4 @@ venv/*
 *~
 *.o
 *.so
-*.c
 *.html
