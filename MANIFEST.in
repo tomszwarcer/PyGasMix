@@ -1,1 +1,2 @@
-recursive-include PyGasMix *
+recursive-include PyGasMix *.pxd
+recursive-include PyGasMix/Gases *.pxd
