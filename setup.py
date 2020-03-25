@@ -45,7 +45,7 @@ setup(
     include_package_data = True,
     package_data={  # Optional
         'PyGasMix': ['./PyGasMix/*.pxd','./PyGasMix/*.pxd'],
-        'PyGasMix': ['./PyGasMix/Gases/*.pxd'],
+        'PyGasMix': ['./PyGasMix/Gases/*.pxd','./PyGasMix/Gases/gases.npy'],
     },
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},
