@@ -44,7 +44,8 @@ setup(
     install_requires=['numpy==1.16.1','cython'],  # Optional
     include_package_data = True,
     package_data={  # Optional
-        'PyGasMix': ['./PyGasMix/Gas.pxd','./PyGasMix/Gasmix.pxd','./PyGasMix/GasUtil.pxd'],
+        'PyGasMix': ['./PyGasMix/*.pxd','./PyGasMix/*.pxd'],
+        'PyGasMix': ['./PyGasMix/Gases/*.pxd'],
     },
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},
