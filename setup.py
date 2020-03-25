@@ -36,15 +36,14 @@ setup(
     ],
     zip_safe=False,
     name='PyGasMix',  # Required
-    packages=['PyGasMix','PyGasMix/Gases'],
+    packages=['PyGasMix'],
 
     version='1.0.0',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyGasMix': 'PyGasMix'},
     install_requires=['numpy==1.16.1','cython'],  # Optional
     package_data={  # Optional
-        'PyGasMix': ['PyGasMix/*.pxd'],
-        'PyGasMix/Gases':['PyGasMix/Gases/gases.npy','PyGasMix/Gases/*.pxd','PyGasMix/*.pxd']
+        'PyGasMix': ['PyGasMix/Gas.pxd','PyGasMix/Gasmix.pxd','PyGasMix/GasUtil.pxd'],
     },
     ext_modules = extensions,
     cmdclass={'build_ext': build_ext},
