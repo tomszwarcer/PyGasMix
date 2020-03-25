@@ -1,4 +1,0 @@
-[build-system]
-requires = ["cython"]
-[build_ext]
-inplace=0
