@@ -4,7 +4,20 @@ from Cython.Build import cythonize
 import Cython
 import numpy
 from io import open
-
+def no_cythonize(extensions, **_ignore):
+    for extension in extensions:
+        sources = []
+        for sfile in extension.sources:
+            path, ext = os.path.splitext(sfile)
+            if ext in (".pyx", ".py"):
+                if extension.language == "c++":
+                    ext = ".cpp"
+                else:
+                    ext = ".c"
+                sfile = path + ext
+            sources.append(sfile)
+        extension.sources[:] = sources
+    return extensions
 extensions = [
     Extension("*",["src/*.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/src/']),
     Extension("*",["src/Gases/*.pyx"],include_dirs=[numpy.get_include(),os.getcwd()+'/src/']),
@@ -27,6 +40,6 @@ setup(
         'src': ['./src/*.pxd'],
         'src/Gases':['./src/Gases/gases.npy','./src/Gases/*.pxd','./src/*.pxd']
     },
-    extensions = cythonize(extensions),
+    extensions = no_cythonize(extensions),
     cmdclass={'build_ext': Cython.Build.build_ext},
 )
