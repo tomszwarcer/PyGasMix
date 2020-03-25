@@ -1,6 +1,5 @@
 import os
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup, find_packages, Extension
 from Cython.Build import cythonize
 import Cython
 import numpy
@@ -16,7 +15,7 @@ setup(
     setup_requires=[
         'cython>=0.2',
     ],
-
+    zip_safe=False,
     name='PyGasMix',  # Required
     packages=['src','src/Gases'],
 
@@ -28,6 +27,6 @@ setup(
         'src': ['./src/*.pxd'],
         'src/Gases':['./src/Gases/gases.npy','./src/Gases/*.pxd','./src/*.pxd']
     },
-    ext_modules = cythonize(extensions),
+    extensions = cythonize(extensions),
     cmdclass={'build_ext': Cython.Build.build_ext},
 )
