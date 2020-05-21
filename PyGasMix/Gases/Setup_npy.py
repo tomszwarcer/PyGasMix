@@ -17760,4 +17760,4 @@ gd['gas25/XEXC1'] = XEXC1G25
 gd['gas25/YEXC1'] = YEXC1G25
 gd['gas25/EnergyLevels'] = EnergyLevelsG25
 
-np.save(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases"), gd)
+np.save(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases"), gd,allow_pickle=True)
