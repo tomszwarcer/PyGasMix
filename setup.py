@@ -41,7 +41,7 @@ setup(
     version='1.0.0',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyGasMix': 'PyGasMix'},
-    install_requires=['numpy==1.16.1','cython'],  # Optional
+    install_requires=['numpy','cython'],  # Optional
     include_package_data = True,
     package_data={  # Optional
         'PyGasMix': ['./PyGasMix/*.pxd','./PyGasMix/*.pxd'],
