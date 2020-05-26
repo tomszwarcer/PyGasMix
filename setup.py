@@ -33,6 +33,7 @@ extensions = [
 setup(
     setup_requires=[
         'cython>=0.2',
+        'numpy>=1.15.1'
     ],
     zip_safe=False,
     name='PyGasMix',  # Required
