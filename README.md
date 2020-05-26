@@ -3,5 +3,5 @@ This repository holds the gas functions, gas cross sections, gas objects, and ga
 
 
 ```
-sudo pip3 install --upgrade  git+https://github.com/UTA-REST/GasMix --user
+sudo pip3 install --upgrade  git+https://github.com/UTA-REST/PyGasMix --user
 ```
