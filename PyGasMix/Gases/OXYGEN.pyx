@@ -19,7 +19,7 @@ cdef void Gas15(Gas*object):
     """
     This function is used to calculate the needed momentum cross sections for Oxygen gas.
     """
-    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy"),allow_pickle=True).item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy")).item()
     cdef double XELA[153], YELA[153], YMOM[153], YEPS[153], XROT13[63], YROT13[63], XROT35[55], YROT35[55], XROT57[55], YROT57[55],
     cdef double XROT79[50], YROT79[50], XROT911[48], YROT911[48], XROT1113[46], YROT1113[46], XROT1315[45], YROT1315[45], XROT1517[44], YROT1517[44],
     cdef double XROT1719[43], YROT1719[43], XROT1921[41], YROT1921[41], XROT2123[40], YROT2123[40], XROT2325[39], YROT2325[39], XROT2527[38], YROT2527[38],
@@ -324,7 +324,7 @@ cdef void Gas15(Gas*object):
     cdef double EN, QMOM, ElasticCrossSectionA, PQ[3], BETA2, GAMMA1, GAMMA2, BETA, SINGLE , THREEB, SFAC, QRES1, ETEMP
     # CALCULATE DENSITY CORRECTION FOR THREE BODY ATTACHMENT CROSS-SECTION
     FAC = 273.15 * object.Pressure / ((object.TemperatureC + 273.15) * 760.0)
-    T3B = 0
+    T3B = 1.0
     # FIRST VIBRATIONAL LEVEL POPULATION
     APOP2 = exp(object.EnergyLevels[48] / object.ThermalEnergy)
     for J in range(NBREM):
@@ -1334,3 +1334,4 @@ cdef void Gas15(Gas*object):
     '''
     '''5000-6000'''
     return
+
