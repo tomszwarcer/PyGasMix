@@ -39,7 +39,7 @@ setup(
     name='PyGasMix',  # Required
     packages=['PyGasMix'],
 
-    version='1.1.0',  # Required
+    version='1.2.0',  # Required
     python_requires='>=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4',
     package_dir={'PyGasMix': 'PyGasMix'},
     install_requires=['numpy','cython'],  # Optional
