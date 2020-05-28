@@ -19,7 +19,6 @@ from Gases.DME cimport Gas25
 from Gases.XENONMERT cimport Gas61
 from libc.string cimport memset
 from Gas cimport Gas
-
 cdef void callGASF(Gas*GAS, Params):
     if GAS.GasNumber == 1:
         Gas1(GAS)

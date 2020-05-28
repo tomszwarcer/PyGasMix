@@ -1,7 +1,7 @@
 from libc.math cimport sin, cos, acos,asin, log,sqrt,exp,atan
 import math
 import sys
-from Gas cimport Gas
+from PyGasMix.Gas cimport Gas
 import numpy as np
 cimport numpy as np
 import os

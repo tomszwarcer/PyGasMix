@@ -4,7 +4,7 @@ cimport libc.math
 import numpy as np
 cimport numpy as np
 import sys
-from Gas cimport Gas
+from PyGasMix.Gas cimport Gas
 from cython.parallel import prange
 import sys
 import os
