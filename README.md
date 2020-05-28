@@ -13,7 +13,7 @@ sudo pip3 install --upgrade  git+https://github.com/UTA-REST/PyGasMix --user
 ```
 
 ### Second method.
-Clond this repository. Then run the following command. 
+Clone this repository. Then run the following command. 
 ```
 $ source setup.sh
 ```
