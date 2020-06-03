@@ -1,4 +1,4 @@
 
 from PyGasMix.Gas cimport Gas
 
-cdef void Gas6(Gas*object)
+cdef void Gas_krypton(Gas*object)

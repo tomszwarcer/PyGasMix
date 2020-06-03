@@ -1,2 +1,2 @@
-from PyGasMix.Gas cimport Gas
-cdef void Gas2(Gas* object)
+from PygasMix.Gas cimport Gas
+cdef void Gas_argon(Gas* object)
