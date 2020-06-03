@@ -9,6 +9,7 @@ from cython.parallel import prange
 
 sys.path.append('../hdf5_python')
 import cython
+import os
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -18,7 +19,8 @@ cdef void Gas_xenon(Gas*object):
     """
     This function is used to calculate the needed momentum cross sections for Xenon gas.
     """
-    gd = np.load('gases.npy').item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy"),allow_pickle=True).item()
+
     cdef double EN, GAMMA1, GAMMA2, BETA, BETA2, ElasticCrossSectionA, QMOM, A, B, X1, X2, C, PQ[3], TEMP, Q456, QCORR, QTEMP, QEXC
     cdef double XEN[182], YMOM[182], XEL[153], YEL[153], XEPS[182], YEPS[182]
     cdef double XION[76], YION[76], YINC[76], YIN1[76], XIN2[54], YIN2[54],

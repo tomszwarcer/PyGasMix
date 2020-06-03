@@ -1,5 +1,6 @@
 from typing import List, Any, Union
 
+import os
 import numpy as np
 '''Script used to set up the cross section for each gas in PyBoltz.'''
 gd = {'data': 'file'}
@@ -17762,4 +17763,4 @@ gd['gas_DME/EnergyLevels'] = EnergyLevelsG25
 
 print("Gas name changes have been made here in Setup_npy.py.")
 
-np.save("gases", gd)
+np.save(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases"), gd,allow_pickle=True)

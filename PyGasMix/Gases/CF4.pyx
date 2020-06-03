@@ -8,6 +8,7 @@ from cython.parallel import prange
 
 sys.path.append('../hdf5_python')
 import cython
+import os
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
@@ -17,7 +18,8 @@ cdef void Gas_cf4(Gas* object):
     """
     This function is used to calculate the needed momentum cross sections for CF4 gas.
     """
-    gd = np.load('gases.npy').item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy"),allow_pickle=True).item()
+
     cdef int i = 0
     object.EnergyLevels = gd['gas_cf4/EnergyLevels']
     cdef double EOBY[12]

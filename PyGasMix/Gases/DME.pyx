@@ -9,6 +9,7 @@ cimport GasUtil
 
 sys.path.append('../hdf5_python')
 import cython
+import os
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
@@ -18,7 +19,8 @@ cdef void Gas_DME(Gas*object):
     """
     This function is used to calculate the needed momentum cross sections for DME gas.
     """
-    gd = np.load('gases.npy').item()
+    gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy"),allow_pickle=True).item()
+
     cdef double XEN[54],YXSEC[54],XION[29],YION[29],XATT[16],YATT[16],XVIB3[19],YVIB3[19],XVIB4[28],YVIB4[28],XVIB5[25]
     cdef double XVIB6[19],YVIB6[19],XEXC[27],YEXC[27],XEXC1[35],YEXC1[35],YVIB5[25]
 
