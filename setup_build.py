@@ -3,7 +3,8 @@ from Cython.Distutils import build_ext
 from Cython.Build import cythonize
 
 import os
-import Cython
+import cython
+import os
 import numpy
 from io import open
 

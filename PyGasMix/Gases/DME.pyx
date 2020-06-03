@@ -6,43 +6,44 @@ import sys
 from PyGasMix.Gas cimport Gas
 from cython.parallel import prange
 cimport GasUtil
-import os
 
 sys.path.append('../hdf5_python')
 import cython
+import os
 
 @cython.cdivision(True)
 @cython.boundscheck(False)
 @cython.wraparound(False)
 @cython.fast_getattr(True)
-cdef void Gas25(Gas*object):
+cdef void Gas_DME(Gas*object):
     """
     This function is used to calculate the needed momentum cross sections for DME gas.
     """
     gd = np.load(os.path.join(os.path.dirname(os.path.realpath(__file__)),"gases.npy"),allow_pickle=True).item()
+
     cdef double XEN[54],YXSEC[54],XION[29],YION[29],XATT[16],YATT[16],XVIB3[19],YVIB3[19],XVIB4[28],YVIB4[28],XVIB5[25]
     cdef double XVIB6[19],YVIB6[19],XEXC[27],YEXC[27],XEXC1[35],YEXC1[35],YVIB5[25]
 
     cdef int NDATA,NVIB3,NVIB4,NVIB5,NVIB6,N_IonizationD,N_Attachment1,NEXC,NEXC1
-    XEN=gd['gas25/XEN']
-    YXSEC=gd['gas25/YXSEC']
-    XION=gd['gas25/XION']
-    YION=gd['gas25/YION']
-    XATT=gd['gas25/XATT']
-    YATT=gd['gas25/YATT']
-    XVIB3=gd['gas25/XVIB3']
-    YVIB3=gd['gas25/YVIB3']
-    XVIB4=gd['gas25/XVIB4']
-    YVIB4=gd['gas25/YVIB4']
-    XVIB5=gd['gas25/XVIB5']
-    YVIB5=gd['gas25/YVIB5']
-    XVIB6=gd['gas25/XVIB6']
-    YVIB6=gd['gas25/YVIB6']
-    XEXC=gd['gas25/XEXC']
-    YEXC=gd['gas25/YEXC']
-    XEXC1=gd['gas25/XEXC1']
-    YEXC1=gd['gas25/YEXC1']
-    object.EnergyLevels = gd['gas25/EnergyLevels']
+    XEN=gd['gas_DME/XEN']
+    YXSEC=gd['gas_DME/YXSEC']
+    XION=gd['gas_DME/XION']
+    YION=gd['gas_DME/YION']
+    XATT=gd['gas_DME/XATT']
+    YATT=gd['gas_DME/YATT']
+    XVIB3=gd['gas_DME/XVIB3']
+    YVIB3=gd['gas_DME/YVIB3']
+    XVIB4=gd['gas_DME/XVIB4']
+    YVIB4=gd['gas_DME/YVIB4']
+    XVIB5=gd['gas_DME/XVIB5']
+    YVIB5=gd['gas_DME/YVIB5']
+    XVIB6=gd['gas_DME/XVIB6']
+    YVIB6=gd['gas_DME/YVIB6']
+    XEXC=gd['gas_DME/XEXC']
+    YEXC=gd['gas_DME/YEXC']
+    XEXC1=gd['gas_DME/XEXC1']
+    YEXC1=gd['gas_DME/YEXC1']
+    object.EnergyLevels = gd['gas_DME/EnergyLevels']
     # ---------------------------------------------------------------------
     # UPDATES DME97 WITH MONTE CARLO SIMULATION OF STEADY STATE TOWNSEND
     #  VALUE FOR ALPHA.

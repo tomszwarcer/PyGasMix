@@ -2,7 +2,8 @@ from setuptools import setup, Extension
 from Cython.Distutils import build_ext
 
 import os
-import Cython
+import cython
+import os
 import numpy
 from io import open
 
